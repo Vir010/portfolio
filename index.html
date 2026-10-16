@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Костюков Илья — Frontend-разработчик. Портфолио и выполненные проекты.">
+    <title>Костюков Илья — Frontend-разработчик</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a href="#hero" class="logo" aria-label="На главную">КИ</a>
+
+            <button class="burger" id="burger" type="button" aria-label="Открыть меню" aria-expanded="false"
+                aria-controls="nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav" id="nav" aria-label="Основная навигация">
+                <ul class="nav__list">
+                    <li><a href="#about">Обо мне</a></li>
+                    <li><a href="#projects">Проекты</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="hero">
+            <div class="container">
+                <p class="hero__label">Frontend-разработчик</p>
+
+                <h1>Костюков Илья — Frontend-разработчик</h1>
+
+                <p class="hero__text">
+                    Создаю адаптивные сайты и интерактивные интерфейсы
+                    на HTML, CSS и JavaScript. Разрабатываю понятные
+                    решения с вниманием к деталям и удобству пользователей.
+                </p>
+
+                <a href="#projects" class="button">Посмотреть проекты</a>
+
+                <ul class="socials">
+                    <li>
+                        <a href="https://github.com/Vir010" target="_blank" rel="noopener noreferrer"
+                            aria-label="GitHub">GitHub</a>
+                    </li>
+                    <li>
+                        <a href="https://t.me/virnals" target="_blank" rel="noopener noreferrer"
+                            aria-label="Telegram">Telegram</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="about section" id="about">
+            <div class="container">
+                <h2 class="section-title">Обо мне</h2>
+
+                <div class="about__inner">
+                    <img class="about__photo" src="img/avatar.jpg" alt="Костюков Илья" width="300" height="300"
+                        loading="lazy">
+
+                    <div class="about__content">
+                        <p>
+                            Я frontend-разработчик, занимаюсь созданием
+                            адаптивных сайтов и интерактивных интерфейсов.
+                        </p>
+                        <p>
+                            Работаю с HTML5, CSS3, JavaScript и Git,
+                            использую Flexbox и Grid для построения интерфейсов.
+                        </p>
+                        <p>
+                            Учитываю семантику HTML, доступность элементов
+                            и корректное отображение сайтов на разных устройствах.
+                        </p>
+                        <p>
+                            Стремлюсь писать понятный код и развиваться
+                            в создании современных веб-приложений.
+                        </p>
+
+                        <ul class="stack">
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                            <li>JavaScript</li>
+                            <li>Git</li>
+                            <li>Figma</li>
+                            <li>REST API</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects section" id="projects">
+            <div class="container">
+                <h2 class="section-title">Проекты</h2>
+
+                <div class="projects__grid">
+                    <article class="project">
+                        <h3>Лендинг услуги</h3>
+                        <p>
+                            Адаптивный сайт услуги с преимуществами
+                            и формой заявки.
+                        </p>
+
+                        <ul class="stack">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                        </ul>
+
+                        <div class="project__links">
+                            <a class="button button--small" href="https://vir010.github.io/landing-master-service/"
+                                target="_blank" rel="noopener noreferrer">Смотреть проект</a>
+
+                            <a class="button button--outline button--small"
+                                href="https://github.com/Vir010/landing-master-service" target="_blank"
+                                rel="noopener noreferrer">GitHub</a>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <h3>Каталог товаров</h3>
+                        <p>
+                            Каталог товаров с поиском, фильтрами
+                            и постраничным отображением.
+                        </p>
+
+                        <ul class="stack">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                        </ul>
+
+                        <div class="project__links">
+                            <a class="button button--small" href="https://vir010.github.io/catalog-tech-store/"
+                                target="_blank" rel="noopener noreferrer">Смотреть проект</a>
+
+                            <a class="button button--outline button--small"
+                                href="https://github.com/Vir010/catalog-tech-store" target="_blank"
+                                rel="noopener noreferrer">GitHub</a>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <h3>Калькулятор стоимости</h3>
+                        <p>
+                            Расчёт стоимости услуги с учётом выбранных
+                            параметров и дополнительных условий.
+                        </p>
+
+                        <ul class="stack">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                        </ul>
+
+                        <div class="project__links">
+                            <a class="button button--small" href="https://vir010.github.io/calculator/" target="_blank"
+                                rel="noopener noreferrer">Смотреть проект</a>
+
+                            <a class="button button--outline button--small" href="https://github.com/Vir010/calculator"
+                                target="_blank" rel="noopener noreferrer">GitHub</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="contacts section" id="contacts">
+            <div class="container">
+                <h2 class="section-title">Контакты</h2>
+
+                <p class="contacts__text">
+                    Напишите мне о вашем проекте.
+                </p>
+
+                <form class="form" id="contactForm">
+                    <div class="form__field">
+                        <label for="name">Имя</label>
+                        <input type="text" id="name" name="name" placeholder="Ваше имя" autocomplete="name" required>
+                    </div>
+
+                    <div class="form__field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email"
+                            required>
+                    </div>
+
+                    <div class="form__field">
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Опишите вашу задачу"
+                            required></textarea>
+                    </div>
+
+                    <button class="button" type="submit">Отправить</button>
+                </form>
+
+                <ul class="contacts__list">
+                    <li>
+                        Email:
+                        <a href="mailto:kostukovi418@gmail.com">
+                            kostukovi418@gmail.com
+                        </a>
+                    </li>
+                    <li>
+                        Telegram:
+                        <a href="https://t.me/virnals" target="_blank" rel="noopener noreferrer">@virnals</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__inner">
+            <p>© <span id="year">2026</span> Костюков Илья</p>
+
+            <ul class="footer__socials">
+                <li>
+                    <a href="https://github.com/Vir010" target="_blank" rel="noopener noreferrer">GitHub</a>
+                </li>
+                <li>
+                    <a href="https://t.me/virnals" target="_blank" rel="noopener noreferrer">Telegram</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>
