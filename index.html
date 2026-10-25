@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Костюков Илья — Frontend-разработчик. Портфолио и выполненные проекты.">
     <title>Костюков Илья — Frontend-разработчик</title>
+
+    <!-- Подключаем стили AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
@@ -37,7 +41,8 @@
             <div class="container">
                 <p class="hero__label">Frontend-разработчик</p>
 
-                <h1>Костюков Илья — Frontend-разработчик</h1>
+                <!-- Даем заголовку ID для GSAP SplitText -->
+                <h1 id="mainTitle">Костюков Илья — Frontend-разработчик</h1>
 
                 <p class="hero__text">
                     Создаю адаптивные сайты и интерактивные интерфейсы
@@ -60,15 +65,16 @@
             </div>
         </section>
 
+        <!-- Добавляем data-aos к секциям -->
         <section class="about section" id="about">
             <div class="container">
-                <h2 class="section-title">Обо мне</h2>
+                <h2 class="section-title" data-aos="fade-up">Обо мне</h2>
 
                 <div class="about__inner">
                     <img class="about__photo" src="img/avatar.jpg" alt="Костюков Илья" width="300" height="300"
-                        loading="lazy">
+                        loading="lazy" data-aos="fade-right">
 
-                    <div class="about__content">
+                    <div class="about__content" data-aos="fade-left">
                         <p>
                             Я frontend-разработчик, занимаюсь созданием
                             адаптивных сайтов и интерактивных интерфейсов.
@@ -101,9 +107,10 @@
 
         <section class="projects section" id="projects">
             <div class="container">
-                <h2 class="section-title">Проекты</h2>
+                <h2 class="section-title" data-aos="fade-up">Проекты</h2>
 
-                <div class="projects__grid">
+                <!-- Даем класс grid для GSAP -->
+                <div class="projects__grid" id="projectsGrid">
                     <article class="project">
                         <h3>Лендинг услуги</h3>
                         <p>
@@ -177,13 +184,13 @@
 
         <section class="contacts section" id="contacts">
             <div class="container">
-                <h2 class="section-title">Контакты</h2>
+                <h2 class="section-title" data-aos="fade-up">Контакты</h2>
 
-                <p class="contacts__text">
+                <p class="contacts__text" data-aos="fade-up">
                     Напишите мне о вашем проекте.
                 </p>
 
-                <form class="form" id="contactForm">
+                <form class="form" id="contactForm" data-aos="fade-up">
                     <div class="form__field">
                         <label for="name">Имя</label>
                         <input type="text" id="name" name="name" placeholder="Ваше имя" autocomplete="name" required>
@@ -204,7 +211,7 @@
                     <button class="button" type="submit">Отправить</button>
                 </form>
 
-                <ul class="contacts__list">
+                <ul class="contacts__list" data-aos="fade-up">
                     <li>
                         Email:
                         <a href="mailto:kostukovi418@gmail.com">
@@ -234,6 +241,57 @@
             </ul>
         </div>
     </footer>
+
+    <!-- Подключаем библиотеки -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/SplitText.min.js"></script>
+
+    <!-- Вызов анимаций -->
+    <script>
+        // Инициализация AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Ждем загрузки DOM перед запуском GSAP
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. Эффект SplitText (вылетающие буквы)
+            const title = document.getElementById("mainTitle");
+            if (title) {
+                const split = new SplitText(title, { type: "chars" });
+
+                gsap.from(split.chars, {
+                    duration: 0.8,
+                    y: 50,
+                    opacity: 0,
+                    stagger: 0.02, // Задержка между буквами
+                    ease: "back.out(1.7)",
+                    delay: 0.2 // Небольшая пауза перед началом
+                });
+            }
+
+            // 2. Каскадное появление карточек (Stagger)
+            const cards = document.querySelectorAll(".project");
+            if (cards.length) {
+                gsap.from(cards, {
+                    duration: 0.8,
+                    y: 40,
+                    opacity: 0,
+                    stagger: 0.2, // Задержка между карточками
+                    ease: "power2.out",
+                    delay: 1, // Ждем, пока вылетят буквы
+                    scrollTrigger: { // Если хочешь, чтобы они появлялись при скролле, но пока просто при загрузке
+                        trigger: ".projects",
+                        start: "top 80%",
+                    }
+                });
+            }
+        });
+    </script>
+
+    <script src="script.js" defer></script>
 </body>
 
 </html>
