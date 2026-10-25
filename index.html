@@ -9,8 +9,14 @@
 
     <!-- Подключаем стили AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
     <link rel="stylesheet" href="style.css">
+
+    <!-- Подключаем библиотеки (defer гарантирует, что HTML загрузится раньше скриптов) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/SplitText.min.js" defer></script>
+
+    <!-- Твой основной скрипт -->
     <script src="script.js" defer></script>
 </head>
 
@@ -65,12 +71,17 @@
             </div>
         </section>
 
-        <!-- Добавляем data-aos к секциям -->
         <section class="about section" id="about">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-up">Обо мне</h2>
+                <span class="about-label" data-aos="fade-up">ОБО МНЕ</span>
 
-                <div class="about__inner">
+                <!-- Блок с крупной нестандартной типографикой -->
+                <h2 class="about-big-text reveal-text">
+                    Я создаю <em>цифровые</em> интерфейсы,<br>
+                    которые <strong>вдохновляют</strong> и работают.
+                </h2>
+
+                <div class="about__inner" style="margin-top: 60px;">
                     <img class="about__photo" src="img/avatar.jpg" alt="Костюков Илья" width="300" height="300"
                         loading="lazy" data-aos="fade-right">
 
@@ -241,57 +252,6 @@
             </ul>
         </div>
     </footer>
-
-    <!-- Подключаем библиотеки -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/SplitText.min.js"></script>
-
-    <!-- Вызов анимаций -->
-    <script>
-        // Инициализация AOS
-        AOS.init({
-            duration: 800,
-            once: true
-        });
-
-        // Ждем загрузки DOM перед запуском GSAP
-        document.addEventListener("DOMContentLoaded", () => {
-            // 1. Эффект SplitText (вылетающие буквы)
-            const title = document.getElementById("mainTitle");
-            if (title) {
-                const split = new SplitText(title, { type: "chars" });
-
-                gsap.from(split.chars, {
-                    duration: 0.8,
-                    y: 50,
-                    opacity: 0,
-                    stagger: 0.02, // Задержка между буквами
-                    ease: "back.out(1.7)",
-                    delay: 0.2 // Небольшая пауза перед началом
-                });
-            }
-
-            // 2. Каскадное появление карточек (Stagger)
-            const cards = document.querySelectorAll(".project");
-            if (cards.length) {
-                gsap.from(cards, {
-                    duration: 0.8,
-                    y: 40,
-                    opacity: 0,
-                    stagger: 0.2, // Задержка между карточками
-                    ease: "power2.out",
-                    delay: 1, // Ждем, пока вылетят буквы
-                    scrollTrigger: { // Если хочешь, чтобы они появлялись при скролле, но пока просто при загрузке
-                        trigger: ".projects",
-                        start: "top 80%",
-                    }
-                });
-            }
-        });
-    </script>
-
-    <script src="script.js" defer></script>
 </body>
 
 </html>

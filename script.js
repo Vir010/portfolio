@@ -1,4 +1,3 @@
-
 const burger = document.querySelector('#burger');
 const nav = document.querySelector('#nav');
 const contactForm = document.querySelector('#contactForm');
@@ -51,3 +50,42 @@ if (contactForm) {
 if (year) {
   year.textContent = new Date().getFullYear();
 }
+
+window.addEventListener('load', () => {
+  // 1. Инициализация AOS (если библиотека подключена)
+  if (typeof AOS !== 'undefined') {
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+  }
+
+  if (typeof gsap !== 'undefined' && typeof SplitText !== 'undefined') {
+    const title = document.getElementById("mainTitle");
+    if (title) {
+      const split = new SplitText(title, { type: "chars" });
+
+      gsap.from(split.chars, {
+        duration: 0.8,
+        y: 50,
+        opacity: 0,
+        stagger: 0.02,
+        ease: "back.out(1.7)",
+        delay: 0.2
+      });
+    }
+  }
+  const revealText = document.querySelector('.reveal-text');
+  if (revealText) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    observer.observe(revealText);
+  }
+});

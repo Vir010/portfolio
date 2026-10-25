@@ -506,3 +506,47 @@ p {
         padding-block: 20px;
     }
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
+.about-label {
+    display: block;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 24px;
+}
+
+.about-big-text {
+    font-family: Arial, sans-serif;
+    font-size: clamp(32px, 5vw, 64px);
+    line-height: 1.15;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: 40px;
+    max-width: 900px;
+}
+
+.about-big-text em {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-accent);
+}
+
+.about-big-text strong {
+    font-weight: 700;
+}
+
+.reveal-text {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-text.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
