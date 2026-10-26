@@ -11,10 +11,12 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
-    <!-- Подключаем библиотеки (defer гарантирует, что HTML загрузится раньше скриптов) -->
+    <!-- Подключаем библиотеки -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/SplitText.min.js" defer></script>
+    <!-- Lottie Web -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js" defer></script>
 
     <!-- Твой основной скрипт -->
     <script src="script.js" defer></script>
@@ -56,7 +58,14 @@
                     решения с вниманием к деталям и удобству пользователей.
                 </p>
 
-                <a href="#projects" class="button">Посмотреть проекты</a>
+                <div class="hero__actions">
+                    <a href="#projects" class="button">Посмотреть проекты</a>
+
+                    <!-- Контейнер для Lottie-анимации (стрелка вниз) -->
+                    <div id="lottie-animation"
+                        style="width: 50px; height: 50px; margin-left: 16px; display: inline-block; vertical-align: middle;">
+                    </div>
+                </div>
 
                 <ul class="socials">
                     <li>
@@ -120,7 +129,6 @@
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up">Проекты</h2>
 
-                <!-- Даем класс grid для GSAP -->
                 <div class="projects__grid" id="projectsGrid">
                     <article class="project">
                         <h3>Лендинг услуги</h3>

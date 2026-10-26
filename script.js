@@ -8,10 +8,7 @@ if (burger && nav) {
     const isOpen = burger.getAttribute('aria-expanded') === 'true';
 
     burger.setAttribute('aria-expanded', String(!isOpen));
-    burger.setAttribute(
-      'aria-label',
-      isOpen ? 'Открыть меню' : 'Закрыть меню'
-    );
+    burger.setAttribute('aria-label', isOpen ? 'Открыть меню' : 'Закрыть меню');
 
     nav.classList.toggle('is-open', !isOpen);
   });
@@ -52,7 +49,6 @@ if (year) {
 }
 
 window.addEventListener('load', () => {
-  // 1. Инициализация AOS (если библиотека подключена)
   if (typeof AOS !== 'undefined') {
     AOS.init({
       duration: 800,
@@ -75,6 +71,7 @@ window.addEventListener('load', () => {
       });
     }
   }
+
   const revealText = document.querySelector('.reveal-text');
   if (revealText) {
     const observer = new IntersectionObserver((entries) => {
@@ -87,5 +84,16 @@ window.addEventListener('load', () => {
     }, { threshold: 0.2 });
 
     observer.observe(revealText);
+  }
+
+  const lottieContainer = document.getElementById('lottie-animation');
+  if (lottieContainer && typeof lottie !== 'undefined') {
+    lottie.loadAnimation({
+      container: lottieContainer,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'https://assets9.lottiefiles.com/packages/lf20_myejiggj.json'
+    });
   }
 });
