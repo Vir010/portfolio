@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
 :root {
     --color-bg: #10131b;
     --color-card: #191e29;
@@ -12,6 +14,10 @@
 
     --radius: 10px;
     --transition: 0.2s ease;
+
+    /* Новая типографика */
+    --font-main: 'Inter', Arial, sans-serif;
+    --font-accent: 'Playfair Display', serif;
 }
 
 * {
@@ -27,7 +33,7 @@ body {
     margin: 0;
     background: var(--color-bg);
     color: var(--color-text);
-    font-family: Arial, sans-serif;
+    font-family: var(--font-main);
     font-size: 16px;
     line-height: 1.6;
 }
@@ -83,8 +89,8 @@ p {
     margin-bottom: 32px;
     font-size: clamp(30px, 4vw, 42px);
     line-height: 1.2;
+    font-weight: 600;
 }
-
 
 .header {
     position: sticky;
@@ -131,7 +137,6 @@ p {
     display: none;
 }
 
-
 .hero {
     padding-block: 100px;
 }
@@ -139,6 +144,7 @@ p {
 .hero__label {
     margin-bottom: 16px;
     color: var(--color-accent);
+    font-weight: 500;
 }
 
 .hero h1 {
@@ -146,15 +152,16 @@ p {
     margin-bottom: 24px;
     font-size: clamp(36px, 6vw, 60px);
     line-height: 1.15;
+    font-weight: 700;
 }
 
 .hero__text {
     max-width: 620px;
     margin-bottom: 28px;
     color: var(--color-muted);
+    font-size: 18px;
 }
 
-/* Обертка для кнопки и Lottie */
 .hero__actions {
     display: flex;
     align-items: center;
@@ -175,9 +182,7 @@ p {
     font-size: 14px;
     font-weight: 600;
     text-align: center;
-    transition:
-        background var(--transition),
-        color var(--transition);
+    transition: background var(--transition), color var(--transition);
 }
 
 .button:hover {
@@ -207,7 +212,6 @@ p {
     gap: 24px;
     font-size: 14px;
 }
-
 
 .about {
     border-top: 1px solid var(--color-border);
@@ -247,8 +251,8 @@ p {
     border-radius: 6px;
     color: var(--color-accent);
     font-size: 12px;
+    font-weight: 500;
 }
-
 
 .projects__grid {
     display: grid;
@@ -269,6 +273,7 @@ p {
 .project h3 {
     margin-bottom: 12px;
     font-size: 21px;
+    font-weight: 600;
 }
 
 .project>p {
@@ -315,6 +320,7 @@ p {
 
 .form__field label {
     font-size: 14px;
+    font-weight: 500;
 }
 
 .form__field input,
@@ -381,6 +387,49 @@ p {
     flex-wrap: wrap;
     gap: 20px;
     font-size: 13px;
+}
+
+.about-label {
+    display: block;
+    font-family: var(--font-main);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 24px;
+}
+
+.about-big-text {
+    font-family: var(--font-main);
+    font-size: clamp(32px, 5vw, 64px);
+    line-height: 1.15;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: 40px;
+    max-width: 900px;
+}
+
+.about-big-text em {
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-accent);
+}
+
+.about-big-text strong {
+    font-weight: 700;
+}
+
+.reveal-text {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-text.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -519,46 +568,14 @@ p {
     }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+@media (prefers-reduced-motion: reduce) {
 
-.about-label {
-    display: block;
-    font-family: Arial, sans-serif;
-    font-size: 12px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--color-accent);
-    margin-bottom: 24px;
-}
-
-.about-big-text {
-    font-family: Arial, sans-serif;
-    font-size: clamp(32px, 5vw, 64px);
-    line-height: 1.15;
-    font-weight: 400;
-    color: var(--color-text);
-    margin-bottom: 40px;
-    max-width: 900px;
-}
-
-.about-big-text em {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-weight: 400;
-    color: var(--color-accent);
-}
-
-.about-big-text strong {
-    font-weight: 700;
-}
-
-.reveal-text {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.reveal-text.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
